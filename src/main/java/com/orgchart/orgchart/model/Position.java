@@ -15,6 +15,7 @@ public class Position implements Serializable{
 	private long organization;
 	private String name;
 	private String careerPath;
+	private long clusterID;
 	
 	private Organization organizationObj;
 	private CareerPath careerpathObj;
@@ -54,6 +55,12 @@ public class Position implements Serializable{
 	}
 	public void setCareerpathObj(CareerPath careerpathObj) {
 		this.careerpathObj = careerpathObj;
+	}
+	public long getClusterID() {
+		return clusterID;
+	}
+	public void setClusterID(long l) {
+		this.clusterID = l;
 	}
 	
 }

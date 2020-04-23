@@ -185,6 +185,9 @@ public class PositionServiceImpl implements PositionService {
 									}
 								}
 							}
+							if (currentRow.getCell(4) != null) {
+								pos.setClusterID((long) currentRow.getCell(4).getNumericCellValue());
+							}
 						}
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -386,6 +389,9 @@ public class PositionServiceImpl implements PositionService {
 											pos.setCareerpathObj(cp);
 										}
 									}
+								}
+								if (currentRow.getCell(4) != null) {
+									pos.setClusterID((long) currentRow.getCell(4).getNumericCellValue());
 								}
 								listPosition.add(pos);
 							}
