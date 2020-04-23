@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.orgchart.orgchart.model.CareerPath;
+import com.orgchart.orgchart.model.Cluster;
 import com.orgchart.orgchart.model.Competency;
 import com.orgchart.orgchart.model.Connection;
 import com.orgchart.orgchart.model.Domain;
@@ -25,6 +26,7 @@ import com.orgchart.orgchart.model.Position;
 import com.orgchart.orgchart.model.Role;
 import com.orgchart.orgchart.model.Structure;
 import com.orgchart.orgchart.service.CareerPathService;
+import com.orgchart.orgchart.service.ClusterService;
 import com.orgchart.orgchart.service.CompetencyService;
 import com.orgchart.orgchart.service.ConnectionService;
 import com.orgchart.orgchart.service.DomainService;
@@ -33,6 +35,7 @@ import com.orgchart.orgchart.service.PositionService;
 import com.orgchart.orgchart.service.RoleService;
 import com.orgchart.orgchart.service.StructureService;
 import com.orgchart.orgchart.serviceImpl.CareerPathServiceImpl;
+import com.orgchart.orgchart.serviceImpl.ClusterServiceImpl;
 import com.orgchart.orgchart.serviceImpl.CompetencyServiceImpl;
 import com.orgchart.orgchart.serviceImpl.ConnectionServiceImpl;
 import com.orgchart.orgchart.serviceImpl.DomainServiceImpl;
@@ -68,6 +71,7 @@ public class RestApiController {
 	
 	ConnectionService conService = new ConnectionServiceImpl();
 	
+	ClusterService clusterService = new ClusterServiceImpl();
 	
 	/**
 	 * get all positions in an organization
@@ -716,5 +720,17 @@ public class RestApiController {
 		listConnection = conService.GetAllConnectionsByDepartmentID(id);
 		return new ResponseEntity<List<Connection>>(listConnection, HttpStatus.OK);
 	}
+	/**
+	 * rra81hc
+	 * get all clusters by department ID
+	 *
+	 */
+	@RequestMapping(value = "/getAllClustersByDepartmentID/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<Cluster>> GetAllClustersByDepartmentID(@PathVariable long id){
+		List<Cluster> listClusters = new ArrayList<Cluster>();
+		listClusters = clusterService.GetAllClustersByDepartmentID(id);
+		return new ResponseEntity<List<Cluster>>(listClusters, HttpStatus.OK);
+	}
+	
 	
 }
