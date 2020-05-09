@@ -447,4 +447,113 @@ public class RoleServiceImpl implements RoleService {
 		return isUpdated;
 	}
 
+	@Override
+	public Role GetRoleByPosId(long id) {
+		Role rl = new Role();
+		try {
+			File file = new File(filePath);
+			FileInputStream inputStream = new FileInputStream(file);
+			Workbook workbook = new XSSFWorkbook(inputStream);
+			Sheet datatypeSheet = workbook.getSheetAt(1);
+			Iterator<Row> iterator = datatypeSheet.iterator();
+			boolean firstRow = true;
+			DomainService dmService = new DomainServiceImpl();
+			List<Domain> listDomain = dmService.getAllDomains();
+			PositionService posService = new PositionServiceImpl();
+			List<Position> listPos = posService.getAllPurePositions();
+			CompetencyService compService = new CompetencyServiceImpl();
+			List<Competency> listComp = compService.GetAllCompetencies();
+			OrganizationService orgService = new OrganizationServiceImpl();
+			List<Organization> listOrg = orgService.getAllPureOrgs();
+
+			while (iterator.hasNext()) {
+
+				Row currentRow = iterator.next();
+
+				if (firstRow) {
+					firstRow = false;
+				} else {
+					try {
+						if (currentRow.getCell(4).getNumericCellValue() == id) {
+							if(currentRow.getCell(0) != null) {
+								rl.setId((long) currentRow.getCell(0).getNumericCellValue());
+							}
+							
+							if(currentRow.getCell(1) != null) {
+								for(Domain dm: listDomain) {
+									if((long) currentRow.getCell(1).getNumericCellValue() == dm.getId()) {
+										rl.setDomainObj(dm);
+									}
+								}
+							}
+							
+							if(currentRow.getCell(2) != null) {
+								for(Organization org: listOrg) {
+									if((long) currentRow.getCell(1).getNumericCellValue() == org.getId()) {
+										rl.setOrgObj(org);
+									}
+								}
+							}
+							
+							
+							/*
+							 * if(currentRow.getCell(3) != null) {
+							 * rl.setCareerPath(currentRow.getCell(3).getStringCellValue()); }
+							 */
+							
+							if(currentRow.getCell(4) != null) {
+								for(Position pos: listPos) {
+									if((long) currentRow.getCell(4).getNumericCellValue() == pos.getId()) {
+										rl.setPositionObj(pos);
+									}
+								}
+							}
+							
+							if(currentRow.getCell(5) != null) {
+								rl.setDomainRole(currentRow.getCell(5).getStringCellValue());
+							}
+							if(currentRow.getCell(6) != null) {
+								rl.setCategory(currentRow.getCell(6).getStringCellValue());
+							}
+							
+							if(currentRow.getCell(7) != null && !currentRow.getCell(7).getStringCellValue().equals("")) {
+								List<Competency> listCompsByRole = new ArrayList<>();
+								Util util = new Util();
+								List<Long> listCompIds = util.ListStringToListLong(currentRow.getCell(7).getStringCellValue());
+								for(Competency comp: listComp) {
+									if(listCompIds.contains(comp.getId())) {
+										listCompsByRole.add(comp);
+									}
+								}
+								rl.setCompetencyObj(listCompsByRole);
+							}
+							
+							if(currentRow.getCell(8) != null) {
+								rl.setKRA(currentRow.getCell(8).getStringCellValue());
+							}
+							if(currentRow.getCell(9) != null) {
+								rl.setScope(currentRow.getCell(9).getStringCellValue());
+							}
+							if(currentRow.getCell(10) != null) {
+								rl.setResponsibilities(currentRow.getCell(10).getStringCellValue());
+							}
+							if(currentRow.getCell(11) != null) {
+								rl.setIndustrialRle(currentRow.getCell(11).getStringCellValue());
+							}
+							if(currentRow.getCell(12) != null) {
+								rl.setEntryCriteria(currentRow.getCell(12).getStringCellValue());
+							}
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rl;
+	}
+
 }

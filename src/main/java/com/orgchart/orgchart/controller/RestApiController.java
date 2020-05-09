@@ -733,4 +733,17 @@ public class RestApiController {
 	}
 	
 	
+	/**
+	 * get roles by positoin id
+	 *
+	 */
+	@RequestMapping(value = "/getRolesByPositionId/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Role> GetRolesByPositionId(@PathVariable(required = false) long id){
+		
+		Role role = new Role();
+		role = rlService.GetRoleByPosId(id);
+		
+		return new ResponseEntity<Role>(role, HttpStatus.OK);
+	}
+	
 }

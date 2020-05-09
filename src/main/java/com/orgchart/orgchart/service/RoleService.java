@@ -17,6 +17,8 @@ public interface RoleService {
 	 
 	 Role GetRoleById(long id);
 	 
+	 Role GetRoleByPosId(long id);
+	 
 	 boolean DeleteRole(long id);
 	 
 	 boolean UpdateRole(Role roleUpdate);
