@@ -19,61 +19,62 @@ import com.orgchart.orgchart.model.Organization;
 @Service
 @Transactional
 public class OrganizationService {
-	
+
 	@Autowired
 	OrganizationRepository orgRepository;
-	
-	public List<Organization> getAll(){
+
+	public List<Organization> getAll() {
 		return orgRepository.getAll();
 	}
-	
+
+	public List<Organization> getByDomain(int domainId) {
+		return orgRepository.getByDomainId(domainId);
+	}
+
 	public OrganizationDTO findById(int id) {
 		return OrganizationMapper.toOrganizationDTO(orgRepository.getOne(Integer.valueOf(id)));
 	}
-	
+
 	public int add(OrganizationDTO obj) {
 		Organization rs = new Organization();
-		
+
 		rs.setName(obj.getName());
 		rs.setDomainObj(DomainMapper.toDomain(obj.getDomainObj()));
 		rs.setBusinessSector(obj.getBusinessSector());
 		rs.setActivate(true);
-		
-		if(orgRepository.save(rs) != null)
-		{
+
+		if (orgRepository.save(rs) != null) {
 			return 1;
-		} 
+		}
 		return 0;
 	}
-	
+
 	public int update(OrganizationDTO obj) {
-		
-		if(orgRepository.save(OrganizationMapper.toOrganization(obj)) != null)
-		{
+
+		if (orgRepository.save(OrganizationMapper.toOrganization(obj)) != null) {
 			return 1;
-		} 
+		}
 		return 0;
 	}
-	
+
 	public int delete(OrganizationDTO obj) {
-		
+
 		obj.setActivate(false);
-		if(orgRepository.save(OrganizationMapper.toOrganization(obj)) != null)
-		{
+		if (orgRepository.save(OrganizationMapper.toOrganization(obj)) != null) {
 			return 1;
-		} 
+		}
 		return 0;
 	}
-	
-//	 List<Organization> getAllOrgs();
-//	 
-//	 List<Organization> getAllPureOrgs();
-//	 
-//	 Organization getOrgById(long id);
-//	 
-//	 boolean deleteOrg(long id);
-//	 
-//	 boolean UpdateOrg(Organization orgUpdate);
-//	 
-//	 public boolean AddOrg(Organization orgUpdate);
+
+	// List<Organization> getAllOrgs();
+	//
+	// List<Organization> getAllPureOrgs();
+	//
+	// Organization getOrgById(long id);
+	//
+	// boolean deleteOrg(long id);
+	//
+	// boolean UpdateOrg(Organization orgUpdate);
+	//
+	// public boolean AddOrg(Organization orgUpdate);
 }

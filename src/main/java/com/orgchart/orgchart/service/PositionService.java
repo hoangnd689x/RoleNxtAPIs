@@ -8,12 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.orgchart.orgchart.DTO.PositionDTO;
 import com.orgchart.orgchart.Mapper.CareerPathMapper;
-import com.orgchart.orgchart.Mapper.DomainMapper;
 import com.orgchart.orgchart.Mapper.OrganizationMapper;
 import com.orgchart.orgchart.Mapper.PositionMapper;
 import com.orgchart.orgchart.Repository.PositionRepository;
-import com.orgchart.orgchart.model.Position;
-import com.orgchart.orgchart.model.Organization;
 import com.orgchart.orgchart.model.Position;
 
 /**
@@ -29,6 +26,10 @@ public class PositionService {
 	
 	public List<Position> getAll(){
 		return PositionRepository.getAll();
+	}
+	
+	public List<Position> getByOrg(int orgId) {
+		return PositionRepository.getByOrgId(orgId);
 	}
 	
 	public PositionDTO findById(int id) {

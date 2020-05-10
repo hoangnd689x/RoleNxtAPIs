@@ -27,8 +27,8 @@ public class CareerPathService {
 		return careerPathRepository.getAll();
 	}
 	
-	public CareerPath findById(int id) {
-		return careerPathRepository.getOne(Integer.valueOf(id));
+	public CareerPathDTO findById(int id) {
+		return CareerPathMapper.toCareerPathDTO( careerPathRepository.getOne(Integer.valueOf(id)));
 	}
 	
 	public int add(CareerPathDTO obj) {

@@ -18,7 +18,7 @@ public class CareerPath {
 	@Id
 	@Column(name = "CP_ID", nullable = false, unique = true)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	
 	@Column(name = "CP_NAME")
 	private String name;
@@ -29,7 +29,7 @@ public class CareerPath {
 	@Column(name = "ACTIVATE")
 	private boolean activate;
 	
-	public CareerPath(long id, String name, String color, boolean activate) {
+	public CareerPath(int id, String name, String color, boolean activate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -40,10 +40,10 @@ public class CareerPath {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

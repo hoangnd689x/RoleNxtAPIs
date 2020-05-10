@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +17,7 @@ import com.orgchart.orgchart.DTO.ConnectionDTO;
 import com.orgchart.orgchart.Mapper.ConnectionMapper;
 import com.orgchart.orgchart.service.ConnectionService;
 
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping(path = "api/connection")
 public class ConnectionController {
@@ -26,6 +29,12 @@ public class ConnectionController {
 	@ResponseBody
 	public List<ConnectionDTO> getAll(){
 		return ConnectionMapper.toConnectionDTOList(this.connectionService.getAll());
+	}
+	
+	@RequestMapping(value = "/get-by-id/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public ConnectionDTO getById(@PathVariable(required = false) int id){
+		return this.connectionService.findById(id);
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)

@@ -26,8 +26,8 @@ public class DomainService {
 		return domainRepository.getAll();
 	}
 	
-	public Domain findById(int id) {
-		return domainRepository.getOne(Integer.valueOf(id));
+	public DomainDTO findById(int id) {
+		return DomainMapper.toDomainDTO(domainRepository.getOne(Integer.valueOf(id)));
 	}
 	
 	public int add(DomainDTO obj) {

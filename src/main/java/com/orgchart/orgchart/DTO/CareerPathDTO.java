@@ -6,7 +6,7 @@ package com.orgchart.orgchart.DTO;
  */
 public class CareerPathDTO {
 	
-	private long id;
+	private int id;
 	
 	private String name;
 	
@@ -14,7 +14,7 @@ public class CareerPathDTO {
 	
 	private boolean activate;
 	
-	public CareerPathDTO(long id, String name, String color, boolean activate) {
+	public CareerPathDTO(int id, String name, String color, boolean activate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -25,10 +25,10 @@ public class CareerPathDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

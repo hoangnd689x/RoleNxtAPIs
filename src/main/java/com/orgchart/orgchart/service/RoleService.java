@@ -38,7 +38,7 @@ public class RoleService {
 	public int add(RoleDTO obj) {
 		Role rs = new Role();
 		
-		rs.setCareerPath(CareerPathMapper.toCareerPath(obj.getCareerPath()));
+		//rs.setCareerPath(CareerPathMapper.toCareerPath(obj.getCareerPath()));
 		rs.setPositionObj(PositionMapper.toPosition(obj.getPositionObj()));
 		rs.setCompetencies(CompetencyMapper.toCompetencyList(obj.getCompetencies()));
 		rs.setDomainRole(obj.getDomainRole());

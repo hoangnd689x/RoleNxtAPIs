@@ -10,7 +10,7 @@ import java.util.List;
 public class RoleDTO {
 	private int id;
 	private PositionDTO positionObj;
-	private CareerPathDTO careerPath;
+	//private CareerPathDTO careerPath;
 	private List<CompetencyDTO> competencies;
 	private String domainRole;
 	private String category;
@@ -26,11 +26,11 @@ public class RoleDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RoleDTO(int id, CareerPathDTO careerPath, PositionDTO positionObj, String domainRole, String category, String kRA,
+	public RoleDTO(int id, /*CareerPathDTO careerPath,*/ PositionDTO positionObj, String domainRole, String category, String kRA,
 			String scope, String responsibilities, String industrialRole, String entryCriteria, boolean activate) {
 		super();
 		this.id = id;
-		this.careerPath = careerPath;
+		//this.careerPath = careerPath;
 		this.positionObj = positionObj;
 		this.domainRole = domainRole;
 		this.category = category;
@@ -50,13 +50,13 @@ public class RoleDTO {
 		this.id = id;
 	}
 
-	public CareerPathDTO getCareerPath() {
-		return careerPath;
-	}
-
-	public void setCareerPath(CareerPathDTO careerPath) {
-		this.careerPath = careerPath;
-	}
+//	public CareerPathDTO getCareerPath() {
+//		return careerPath;
+//	}
+//
+//	public void setCareerPath(CareerPathDTO careerPath) {
+//		this.careerPath = careerPath;
+//	}
 
 	public PositionDTO getPositionObj() {
 		return positionObj;

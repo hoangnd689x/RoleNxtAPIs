@@ -7,10 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.orgchart.orgchart.DTO.CompetencyDTO;
-import com.orgchart.orgchart.DTO.OrganizationDTO;
 import com.orgchart.orgchart.Mapper.CompetencyMapper;
 import com.orgchart.orgchart.Mapper.DomainMapper;
-import com.orgchart.orgchart.Mapper.OrganizationMapper;
 import com.orgchart.orgchart.Repository.CompetencyRepository;
 import com.orgchart.orgchart.model.Competency;
 
@@ -27,6 +25,10 @@ public class CompetencyService {
 	
 	public List<Competency> getAll(){
 		return competencyRepository.getAll();
+	}
+	
+	public List<Competency> getByDomainId(int domainId){
+		return competencyRepository.getByDomainId(domainId);
 	}
 	
 	public CompetencyDTO findById(int id) {

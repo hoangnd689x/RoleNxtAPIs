@@ -30,9 +30,9 @@ public class Role {
 	@JoinColumn(name = "POSITION_ID")
 	private Position positionObj;
 
-	@ManyToOne
-	@JoinColumn(name = "CP_ID")
-	private CareerPath careerPath;
+//	@ManyToOne
+//	@JoinColumn(name = "CP_ID")
+//	private CareerPath careerPath;
 
 	@ManyToMany
 //	@JoinTable(name = "ROLE_COMPETENCY", joinColumns = @JoinColumn(name = "ROLE_ID"), inverseJoinColumns = @JoinColumn(name = "COM_ID"))
@@ -67,11 +67,11 @@ public class Role {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Role(int id, CareerPath careerPath, Position positionObj, String domainRole, String category, String kRA,
+	public Role(int id, /*CareerPath careerPath,*/ Position positionObj, String domainRole, String category, String kRA,
 			String scope, String responsibilities, String industrialRole, String entryCriteria, boolean activate) {
 		super();
 		this.id = id;
-		this.careerPath = careerPath;
+		//this.careerPath = careerPath;
 		this.positionObj = positionObj;
 		this.domainRole = domainRole;
 		this.category = category;
@@ -99,13 +99,13 @@ public class Role {
 		this.id = id;
 	}
 
-	public CareerPath getCareerPath() {
-		return careerPath;
-	}
-
-	public void setCareerPath(CareerPath careerPath) {
-		this.careerPath = careerPath;
-	}
+//	public CareerPath getCareerPath() {
+//		return careerPath;
+//	}
+//
+//	public void setCareerPath(CareerPath careerPath) {
+//		this.careerPath = careerPath;
+//	}
 
 	public Position getPositionObj() {
 		return positionObj;
