@@ -8,12 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.orgchart.orgchart.DTO.RoleDTO;
 import com.orgchart.orgchart.Mapper.RoleMapper;
-import com.orgchart.orgchart.Mapper.CareerPathMapper;
 import com.orgchart.orgchart.Mapper.CompetencyMapper;
-import com.orgchart.orgchart.Mapper.DomainMapper;
 import com.orgchart.orgchart.Mapper.PositionMapper;
 import com.orgchart.orgchart.Repository.RoleRepository;
-import com.orgchart.orgchart.model.Role;
 import com.orgchart.orgchart.model.Role;
 
 /**
@@ -29,6 +26,10 @@ public class RoleService {
 	
 	public List<Role> getAll(){
 		return RoleRepository.getAll();
+	}
+	
+	public List<Role> getByPositionId(int positionId){
+		return RoleRepository.getByPositionId(positionId);
 	}
 	
 	public RoleDTO findById(int id) {

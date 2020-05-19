@@ -36,6 +36,12 @@ public class RoleController {
 		return RoleMapper.toRoleDTOList(this.roleService.getAll());
 	}
 	
+	@RequestMapping(value = "/get-by-position/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<RoleDTO> getByPosition(@PathVariable(required = false) int id){
+		return RoleMapper.toRoleDTOList(this.roleService.getByPositionId(id));
+	}
+	
 	@RequestMapping(value = "/get-by-id/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public RoleDTO getById(@PathVariable(required = false) int id){

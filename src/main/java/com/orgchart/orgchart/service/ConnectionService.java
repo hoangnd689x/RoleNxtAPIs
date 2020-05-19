@@ -28,6 +28,10 @@ public class ConnectionService {
 		return connectionRepository.getAll();
 	}
 	
+	public List<Connection> getByOrg(int orgId){
+		return connectionRepository.getByOrgId(orgId);
+	}
+	
 	public ConnectionDTO findById(int id) {
 		return ConnectionMapper.toConnectionDTO(connectionRepository.getOne(Integer.valueOf(id)));
 	}

@@ -31,6 +31,12 @@ public class ConnectionController {
 		return ConnectionMapper.toConnectionDTOList(this.connectionService.getAll());
 	}
 	
+	@RequestMapping(value = "/get-by-org/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<ConnectionDTO> getByOrg(@PathVariable(required = false) int id){
+		return ConnectionMapper.toConnectionDTOList(this.connectionService.getByOrg(id));
+	}
+	
 	@RequestMapping(value = "/get-by-id/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public ConnectionDTO getById(@PathVariable(required = false) int id){
