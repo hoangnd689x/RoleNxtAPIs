@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -38,24 +39,31 @@ public class Role {
 //	@JoinTable(name = "ROLE_COMPETENCY", joinColumns = @JoinColumn(name = "ROLE_ID"), inverseJoinColumns = @JoinColumn(name = "COM_ID"))
 	private List<Competency> competencies;
 
+	@Lob
 	@Column(name = "DOMAIN_ROLES")
 	private String domainRole;
 
+	@Lob
 	@Column(name = "PROJECT_CATEGORY")
 	private String category;
 
+	@Lob
 	@Column(name = "KRA")
 	private String KRA;
 
+	@Lob
 	@Column(name = "SCOPE")
 	private String scope;
 
+	@Lob
 	@Column(name = "RESPONSIBILITIES")
 	private String responsibilities;
 
+	@Lob
 	@Column(name = "INDUSTRIAL_ROLE")
 	private String industrialRole;
 
+	@Lob
 	@Column(name = "ENTRY_CRIDENTIA")
 	private String entryCriteria;
 

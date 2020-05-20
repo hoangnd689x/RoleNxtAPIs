@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,6 +47,12 @@ public class RoleController {
 	@ResponseBody
 	public RoleDTO getById(@PathVariable(required = false) int id){
 		return this.roleService.findById(id);
+	}
+	
+	@RequestMapping(value = "/get-by-domain-position", method = RequestMethod.GET)
+	@ResponseBody
+	public RoleDTO getByDomainPosition(@RequestParam("domainId") int domainId, @RequestParam("positionId") int positionId){
+		return this.roleService.getByDomainPosition(domainId, positionId);
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)

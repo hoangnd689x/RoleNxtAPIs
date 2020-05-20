@@ -32,6 +32,10 @@ public class RoleService {
 		return RoleRepository.getByPositionId(positionId);
 	}
 	
+	public RoleDTO getByDomainPosition(int domainId, int positionId) {
+		return RoleRepository.getByDomainPosition(domainId, positionId) != null ? RoleMapper.toRoleDTO(RoleRepository.getByDomainPosition(domainId, positionId)) : new RoleDTO();
+	}
+	
 	public RoleDTO findById(int id) {
 		return RoleMapper.toRoleDTO(RoleRepository.getOne(Integer.valueOf(id)));
 	}
