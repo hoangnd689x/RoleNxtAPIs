@@ -20,7 +20,7 @@ public class Connection {
 	@Id
 	@Column(name = "CONNECTION_ID", nullable = false, unique = true)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	
 	@ManyToOne
 	@JoinColumn(name = "ORGANIZATION_ID")
@@ -42,7 +42,7 @@ public class Connection {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Connection(long id, Organization orgObj, Position source, Position target, boolean activate) {
+	public Connection(int id, Organization orgObj, Position source, Position target, boolean activate) {
 		super();
 		this.id = id;
 		this.orgObj = orgObj;
@@ -51,11 +51,11 @@ public class Connection {
 		this.activate = activate;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

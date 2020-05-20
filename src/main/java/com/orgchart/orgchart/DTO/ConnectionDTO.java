@@ -7,7 +7,7 @@ package com.orgchart.orgchart.DTO;
 
 public class ConnectionDTO {
 	
-	private long id;
+	private int id;
 	private OrganizationDTO orgObj;
 	private PositionDTO source;
 	private PositionDTO target;
@@ -18,7 +18,7 @@ public class ConnectionDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ConnectionDTO(long id, OrganizationDTO orgObj, PositionDTO source, PositionDTO target, boolean activate) {
+	public ConnectionDTO(int id, OrganizationDTO orgObj, PositionDTO source, PositionDTO target, boolean activate) {
 		super();
 		this.id = id;
 		this.orgObj = orgObj;
@@ -27,11 +27,11 @@ public class ConnectionDTO {
 		this.activate = activate;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
