@@ -1,9 +1,5 @@
 package com.orgchart.orgchart.DTO;
 
-
-import com.orgchart.orgchart.model.CareerPath;
-import com.orgchart.orgchart.model.Organization;
-
 /**
  * @author NNA7HC
  *

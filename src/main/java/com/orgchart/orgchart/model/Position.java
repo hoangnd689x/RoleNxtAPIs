@@ -1,6 +1,5 @@
 package com.orgchart.orgchart.model;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "POSITIONS")
-public class Position implements Serializable{
+public class Position {
 	
 	@Id
 	@Column(name = "POSITION_ID", nullable = false, unique = true)

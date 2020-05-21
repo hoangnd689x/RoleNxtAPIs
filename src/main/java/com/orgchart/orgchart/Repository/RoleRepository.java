@@ -23,6 +23,6 @@ public interface RoleRepository extends JpaRepository<Role, Integer>{
 	@Query("SELECT r FROM Role r inner join r.positionObj p WHERE p.id = :positionId AND r.activate = true")
 	List<Role> getByPositionId(@Param("positionId") int positionId);
 	
-	@Query("SELECT r FROM Role r inner join r.positionObj p WHERE p.id = :positionId AND p.organizationObj.domainObj.id = :domainId AND r.activate = true")
-	Role getByDomainPosition(@Param("domainId") int domainId, @Param("positionId") int positionId);
+	@Query("SELECT r FROM Role r inner join r.positionObj p WHERE p.id = :positionId AND r.deptDomain.id = :domainId AND r.activate = true")
+	Role getByDomainPosition(@Param("deptDomainId") int deptDomainId, @Param("positionId") int positionId);
 }

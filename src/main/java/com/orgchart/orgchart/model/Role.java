@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -30,13 +29,16 @@ public class Role {
 	@ManyToOne
 	@JoinColumn(name = "POSITION_ID")
 	private Position positionObj;
+	
+	@ManyToOne
+	@JoinColumn(name = "DEPARTMENTDOMAIN_ID")
+	private DepartmentDomain deptDomain;
 
 //	@ManyToOne
 //	@JoinColumn(name = "CP_ID")
 //	private CareerPath careerPath;
 
 	@ManyToMany
-//	@JoinTable(name = "ROLE_COMPETENCY", joinColumns = @JoinColumn(name = "ROLE_ID"), inverseJoinColumns = @JoinColumn(name = "COM_ID"))
 	private List<Competency> competencies;
 
 	@Lob
@@ -75,12 +77,14 @@ public class Role {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Role(int id, /*CareerPath careerPath,*/ Position positionObj, String domainRole, String category, String kRA,
-			String scope, String responsibilities, String industrialRole, String entryCriteria, boolean activate) {
+	public Role(int id, Position positionObj, DepartmentDomain deptDomain, List<Competency> competencies,
+			String domainRole, String category, String kRA, String scope, String responsibilities,
+			String industrialRole, String entryCriteria, boolean activate) {
 		super();
 		this.id = id;
-		//this.careerPath = careerPath;
 		this.positionObj = positionObj;
+		this.deptDomain = deptDomain;
+		this.competencies = competencies;
 		this.domainRole = domainRole;
 		this.category = category;
 		KRA = kRA;
@@ -89,6 +93,15 @@ public class Role {
 		this.industrialRole = industrialRole;
 		this.entryCriteria = entryCriteria;
 		this.activate = activate;
+	}
+
+
+	public DepartmentDomain getDeptDomain() {
+		return deptDomain;
+	}
+
+	public void setDeptDomain(DepartmentDomain deptDomain) {
+		this.deptDomain = deptDomain;
 	}
 
 	public List<Competency> getCompetencies() {

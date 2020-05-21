@@ -1,12 +1,11 @@
 package com.orgchart.orgchart.model;
 
-import java.io.Serializable;
 
 /**
  * @author YOG1HC
  *
  */
-public class Structure  implements Serializable{
+public class Structure {
 
 	private long id;
 	private long org;

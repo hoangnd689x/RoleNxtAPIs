@@ -2,6 +2,7 @@ package com.orgchart.orgchart.DTO;
 
 import java.util.List;
 
+
 /**
  * @author NNA7HC
  *
@@ -10,6 +11,7 @@ import java.util.List;
 public class RoleDTO {
 	private int id;
 	private PositionDTO positionObj;
+	private DepartmentDomainDTO deptDomain;
 	//private CareerPathDTO careerPath;
 	private List<CompetencyDTO> competencies;
 	private String domainRole;
@@ -26,12 +28,14 @@ public class RoleDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RoleDTO(int id, /*CareerPathDTO careerPath,*/ PositionDTO positionObj, String domainRole, String category, String kRA,
-			String scope, String responsibilities, String industrialRole, String entryCriteria, boolean activate) {
+	public RoleDTO(int id, PositionDTO positionObj, DepartmentDomainDTO deptDomain, List<CompetencyDTO> competencies,
+			String domainRole, String category, String kRA, String scope, String responsibilities,
+			String industrialRole, String entryCriteria, boolean activate) {
 		super();
 		this.id = id;
-		//this.careerPath = careerPath;
 		this.positionObj = positionObj;
+		this.deptDomain = deptDomain;
+		this.competencies = competencies;
 		this.domainRole = domainRole;
 		this.category = category;
 		KRA = kRA;
@@ -40,6 +44,14 @@ public class RoleDTO {
 		this.industrialRole = industrialRole;
 		this.entryCriteria = entryCriteria;
 		this.activate = activate;
+	}
+
+	public DepartmentDomainDTO getDeptDomain() {
+		return deptDomain;
+	}
+
+	public void setDeptDomain(DepartmentDomainDTO deptDomain) {
+		this.deptDomain = deptDomain;
 	}
 
 	public int getId() {
