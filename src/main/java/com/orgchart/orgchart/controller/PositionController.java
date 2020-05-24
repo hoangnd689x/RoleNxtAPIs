@@ -42,6 +42,12 @@ public class PositionController {
 		return PositionMapper.toPositionDTOList(this.positionService.getByOrg(id));
 	}
 	
+//	@RequestMapping(value = "/get-by-deptDomain-and-name", method = RequestMethod.GET)
+//	@ResponseBody
+//	public PositionDTO getByDomainPosition(@RequestParam("deptDomainId") int deptDomainId, @RequestParam("positionName") String positionName){
+//		return this.positionService.getByDomainAndPositionName(deptDomainId, positionName);
+//	}
+	
 	@RequestMapping(value = "/get-by-id/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public PositionDTO getById(@PathVariable(required = false) int id){

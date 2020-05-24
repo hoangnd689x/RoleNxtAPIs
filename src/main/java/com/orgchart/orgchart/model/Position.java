@@ -27,6 +27,10 @@ public class Position {
 	@JoinColumn(name = "ORGANIZATION_ID")
 	private Organization organizationObj;
 	
+//	@ManyToOne
+//	@JoinColumn(name = "DEPARTMENTDOMAIN_ID")
+//	private DepartmentDomain deptDomain;
+	
 	@ManyToOne
 	@JoinColumn(name = "CP_ID")
 	private CareerPath careerpathObj;

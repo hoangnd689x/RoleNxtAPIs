@@ -49,11 +49,11 @@ public class RoleController {
 		return this.roleService.findById(id);
 	}
 	
-	@RequestMapping(value = "/get-by-deptDomain-position", method = RequestMethod.GET)
-	@ResponseBody
-	public RoleDTO getByDomainPosition(@RequestParam("deptDomainId") int deptDomainId, @RequestParam("positionId") int positionId){
-		return this.roleService.getByDomainPosition(deptDomainId, positionId);
-	}
+//	@RequestMapping(value = "/get-by-deptDomain-position", method = RequestMethod.GET)
+//	@ResponseBody
+//	public RoleDTO getByDomainPosition(@RequestParam("deptDomainId") int deptDomainId, @RequestParam("positionId") int positionId){
+//		return this.roleService.getByDomainPosition(deptDomainId, positionId);
+//	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	@ResponseBody

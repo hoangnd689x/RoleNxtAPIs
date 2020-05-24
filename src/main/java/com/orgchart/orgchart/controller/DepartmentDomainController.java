@@ -41,6 +41,12 @@ public class DepartmentDomainController {
 		return this.departmentDomainService.findById(id);
 	}
 	
+	@RequestMapping(value = "/get-by-position/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<DepartmentDomainDTO> getByPositionId(@PathVariable(required = false) int id){
+		return DepartmentDomainMapper.toDepartmentDomainDTOList(this.departmentDomainService.getbyPositionId(id));
+	}
+	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<Integer> addDepartmentDomain(@RequestBody DepartmentDomainDTO item) {

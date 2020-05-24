@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.orgchart.orgchart.DTO.RoleDTO;
 import com.orgchart.orgchart.Mapper.RoleMapper;
-import com.orgchart.orgchart.Mapper.CompetencyMapper;
 import com.orgchart.orgchart.Mapper.PositionMapper;
 import com.orgchart.orgchart.Repository.RoleRepository;
 import com.orgchart.orgchart.model.Role;
@@ -32,9 +31,9 @@ public class RoleService {
 		return RoleRepository.getByPositionId(positionId);
 	}
 	
-	public RoleDTO getByDomainPosition(int deptDomainId, int positionId) {
-		return RoleRepository.getByDomainPosition(deptDomainId, positionId) != null ? RoleMapper.toRoleDTO(RoleRepository.getByDomainPosition(deptDomainId, positionId)) : new RoleDTO();
-	}
+//	public RoleDTO getByDomainPosition(int deptDomainId, int positionId) {
+//		return RoleRepository.getByDomainPosition(deptDomainId, positionId) != null ? RoleMapper.toRoleDTO(RoleRepository.getByDomainPosition(deptDomainId, positionId)) : new RoleDTO();
+//	}
 	
 	public RoleDTO findById(int id) {
 		return RoleMapper.toRoleDTO(RoleRepository.getOne(Integer.valueOf(id)));
@@ -45,7 +44,8 @@ public class RoleService {
 		
 		//rs.setCareerPath(CareerPathMapper.toCareerPath(obj.getCareerPath()));
 		rs.setPositionObj(PositionMapper.toPosition(obj.getPositionObj()));
-		rs.setCompetencies(CompetencyMapper.toCompetencyList(obj.getCompetencies()));
+		//rs.setCompetencies(CompetencyMapper.toCompetencyList(obj.getCompetencies()));
+		rs.setCompetencies(obj.getCompetencies());
 		rs.setDomainRole(obj.getDomainRole());
 		rs.setCategory(obj.getCategory());
 		rs.setKRA(obj.getKRA());

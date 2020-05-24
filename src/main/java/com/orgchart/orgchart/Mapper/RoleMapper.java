@@ -18,8 +18,7 @@ public class RoleMapper {
 		rs.setId(item.getId());
 		//rs.setCareerPath(CareerPathMapper.toCareerPath(item.getCareerPath()));
 		rs.setPositionObj(PositionMapper.toPosition(item.getPositionObj()));
-		rs.setDeptDomain(DepartmentDomainMapper.toDepartmentDomain(item.getDeptDomain()));
-		rs.setCompetencies(CompetencyMapper.toCompetencyList(item.getCompetencies()));
+		rs.setCompetencies(item.getCompetencies());
 		rs.setDomainRole(item.getDomainRole());
 		rs.setCategory(item.getCategory());
 		rs.setKRA(item.getKRA());
@@ -38,8 +37,7 @@ public class RoleMapper {
 		rs.setId(item.getId());
 		//rs.setCareerPath(CareerPathMapper.toCareerPathDTO(item.getCareerPath()));
 		rs.setPositionObj(PositionMapper.toPositionDTO(item.getPositionObj()));
-		rs.setDeptDomain(DepartmentDomainMapper.toDepartmentDomainDTO(item.getDeptDomain()));
-		rs.setCompetencies(CompetencyMapper.toCompetencyDTOList(item.getCompetencies()));
+		rs.setCompetencies(item.getCompetencies());
 		rs.setDomainRole(item.getDomainRole());
 		rs.setCategory(item.getCategory());
 		rs.setKRA(item.getKRA());

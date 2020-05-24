@@ -20,7 +20,11 @@ public class DepartmentDomainMapper {
 		rs.setId(item.getId());
 		rs.setName(item.getName());
 		rs.setActivate(item.getActivate());
-		rs.setOrgObj(OrganizationMapper.toOrganization(item.getOrgObj()));
+		rs.setPositionObj(PositionMapper.toPosition(item.getPositionObj()));
+		rs.setCompetencies(item.getCompetencies());
+		rs.setEntryCriteria(item.getEntryCriteria());
+		rs.setResponsibilities(item.getResponsibilities());
+		//rs.setOrgObj(OrganizationMapper.toOrganization(item.getOrgObj()));
 		
 		return rs;
 	}
@@ -31,7 +35,11 @@ public class DepartmentDomainMapper {
 		rs.setId(item.getId());
 		rs.setName(item.getName());
 		rs.setActivate(item.getActivate());
-		rs.setOrgObj(OrganizationMapper.toOrganizationDTO(item.getOrgObj()));
+		rs.setCompetencies(item.getCompetencies());
+		rs.setEntryCriteria(item.getEntryCriteria());
+		rs.setResponsibilities(item.getResponsibilities());
+		rs.setPositionObj(PositionMapper.toPositionDTO(item.getPositionObj()));
+		//rs.setOrgObj(OrganizationMapper.toOrganizationDTO(item.getOrgObj()));
 		
 		return rs;
 	}

@@ -22,6 +22,7 @@ public class PositionMapper {
 		rs.setCluster(item.getCluster());
 		rs.setActivate(item.getActivate());
 		rs.setCareerpathObj(CareerPathMapper.toCareerPath(item.getCareerpathObj()));
+		//rs.setDeptDomain(DepartmentDomainMapper.toDepartmentDomain(item.getDeptDomain()));
 		rs.setOrganizationObj(OrganizationMapper.toOrganization(item.getOrganizationObj()));
 		
 		return rs;
@@ -35,6 +36,7 @@ public class PositionMapper {
 		rs.setCluster(item.getCluster());
 		rs.setActivate(item.getActivate());
 		rs.setCareerpathObj(CareerPathMapper.toCareerPathDTO(item.getCareerpathObj()));
+		//rs.setDeptDomain(DepartmentDomainMapper.toDepartmentDomainDTO(item.getDeptDomain()));
 		rs.setOrganizationObj(OrganizationMapper.toOrganizationDTO(item.getOrganizationObj()));
 		
 		return rs;

@@ -10,6 +10,7 @@ public class PositionDTO {
 	private int id;
 	
 	private OrganizationDTO organizationObj;
+	//private DepartmentDomainDTO deptDomain;
 	
 	private CareerPathDTO careerpathObj;
 	private String name;

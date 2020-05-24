@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,11 +25,23 @@ public class DepartmentDomain {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name = "ORG_ID")
-	private Organization orgObj;
+	@JoinColumn(name = "POSITION_ID")
+	private Position positionObj;
 	
 	@Column(name = "DEPARTMENTDOMAIN_NAME")
 	private String name;
+	
+	@Lob
+	@Column(name = "COMPETENCIES")
+	private String competencies;
+	
+	@Lob
+	@Column(name = "RESPONSIBILITIES")
+	private String responsibilities;
+
+	@Lob
+	@Column(name = "ENTRY_CRIDENTIA")
+	private String entryCriteria;
 	
 	@Column(name = "ACTIVATE")
 	private boolean activate;
@@ -37,12 +50,40 @@ public class DepartmentDomain {
 		super();
 	}
 
-	public DepartmentDomain(int id, Organization orgObj, String name, boolean activate) {
+	public DepartmentDomain(int id, Position positionObj, String name, String competencies, String responsibilities,
+			String entryCriteria, boolean activate) {
 		super();
 		this.id = id;
-		this.orgObj = orgObj;
+		this.positionObj = positionObj;
 		this.name = name;
+		this.competencies = competencies;
+		this.responsibilities = responsibilities;
+		this.entryCriteria = entryCriteria;
 		this.activate = activate;
+	}
+
+	public String getCompetencies() {
+		return competencies;
+	}
+
+	public void setCompetencies(String competencies) {
+		this.competencies = competencies;
+	}
+
+	public String getResponsibilities() {
+		return responsibilities;
+	}
+
+	public void setResponsibilities(String responsibilities) {
+		this.responsibilities = responsibilities;
+	}
+
+	public String getEntryCriteria() {
+		return entryCriteria;
+	}
+
+	public void setEntryCriteria(String entryCriteria) {
+		this.entryCriteria = entryCriteria;
 	}
 
 	public int getId() {
@@ -53,12 +94,12 @@ public class DepartmentDomain {
 		this.id = id;
 	}
 
-	public Organization getOrgObj() {
-		return orgObj;
+	public Position getPositionObj() {
+		return positionObj;
 	}
 
-	public void setOrgObj(Organization orgObj) {
-		this.orgObj = orgObj;
+	public void setPositionObj(Position positionObj) {
+		this.positionObj = positionObj;
 	}
 
 	public String getName() {

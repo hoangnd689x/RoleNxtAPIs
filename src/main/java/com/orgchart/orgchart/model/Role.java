@@ -1,6 +1,5 @@
 package com.orgchart.orgchart.model;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -29,17 +27,13 @@ public class Role {
 	@ManyToOne
 	@JoinColumn(name = "POSITION_ID")
 	private Position positionObj;
-	
-	@ManyToOne
-	@JoinColumn(name = "DEPARTMENTDOMAIN_ID")
-	private DepartmentDomain deptDomain;
 
 //	@ManyToOne
 //	@JoinColumn(name = "CP_ID")
 //	private CareerPath careerPath;
 
-	@ManyToMany
-	private List<Competency> competencies;
+	@Column(name = "COMPETENICES")
+	private String competencies;
 
 	@Lob
 	@Column(name = "DOMAIN_ROLES")
@@ -77,13 +71,13 @@ public class Role {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Role(int id, Position positionObj, DepartmentDomain deptDomain, List<Competency> competencies,
+	public Role(int id, Position positionObj, String competencies,
 			String domainRole, String category, String kRA, String scope, String responsibilities,
 			String industrialRole, String entryCriteria, boolean activate) {
 		super();
 		this.id = id;
 		this.positionObj = positionObj;
-		this.deptDomain = deptDomain;
+		//this.deptDomain = deptDomain;
 		this.competencies = competencies;
 		this.domainRole = domainRole;
 		this.category = category;
@@ -95,20 +89,11 @@ public class Role {
 		this.activate = activate;
 	}
 
-
-	public DepartmentDomain getDeptDomain() {
-		return deptDomain;
-	}
-
-	public void setDeptDomain(DepartmentDomain deptDomain) {
-		this.deptDomain = deptDomain;
-	}
-
-	public List<Competency> getCompetencies() {
+	public String getCompetencies() {
 		return competencies;
 	}
 
-	public void setCompetencies(List<Competency> competencies) {
+	public void setCompetencies(String competencies) {
 		this.competencies = competencies;
 	}
 

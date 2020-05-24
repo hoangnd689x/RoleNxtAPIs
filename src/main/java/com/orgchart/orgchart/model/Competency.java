@@ -17,8 +17,8 @@ import javax.persistence.Table;
  * @author NNA7HC
  *
  */
-@Entity
-@Table(name = "COMPETENCY")
+//@Entity
+//@Table(name = "COMPETENCY")
 public class Competency {
 	
 	@Id

@@ -36,12 +36,19 @@ public class PositionService {
 		return PositionMapper.toPositionDTO(PositionRepository.getOne(Integer.valueOf(id)));
 	}
 	
+//	public PositionDTO getByDomainAndPositionName(int deptDomainId, String positionName) {
+//		return PositionRepository.getByDeptDomainandName(deptDomainId, positionName) != null
+//				? PositionMapper.toPositionDTO(PositionRepository.getByDeptDomainandName(deptDomainId, positionName))
+//				: new PositionDTO();
+//	}
+	
 	public int add(PositionDTO obj) {
 		Position rs = new Position();
 		
 		rs.setName(obj.getName());
 		rs.setCluster(obj.getCluster());
 		rs.setCareerpathObj(CareerPathMapper.toCareerPath(obj.getCareerpathObj()));
+		//rs.setDeptDomain(DepartmentDomainMapper.toDepartmentDomain(obj.getDeptDomain()));
 		rs.setOrganizationObj(OrganizationMapper.toOrganization(obj.getOrganizationObj()));
 		rs.setActivate(true);
 		

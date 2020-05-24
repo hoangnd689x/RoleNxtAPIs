@@ -22,4 +22,7 @@ public interface PositionRepository extends JpaRepository<Position, Integer>{
 	
 	@Query("SELECT p FROM Position p inner join p.organizationObj o WHERE o.id = :orgId AND p.activate = true")
 	List<Position> getByOrgId(@Param("orgId") int orgId);
+	
+//	@Query("SELECT p FROM Position p inner join p.deptDomain d WHERE d.id = :deptDomainId AND p.name = :positionName AND p.activate = true")
+//	Position getByDeptDomainandName(@Param("deptDomainId") int deptDomainId, @Param("positionName") String positionName);
 }

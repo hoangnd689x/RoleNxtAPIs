@@ -14,12 +14,12 @@ import com.orgchart.orgchart.model.Competency;
  *
  */
 
-@Repository
-public interface CompetencyRepository extends JpaRepository<Competency, Integer>{
+//@Repository
+//public interface CompetencyRepository extends JpaRepository<Competency, Integer>{
 	
-	@Query("SELECT c FROM Competency c WHERE c.activate = true")
-	List<Competency> getAll();
-	
-	@Query("SELECT c FROM Competency c inner join c.dmOjb d WHERE d.id = :domainId AND c.activate = true")
-	List<Competency> getByDomainId(@Param("domainId") int domainId);
-}
+//	@Query("SELECT c FROM Competency c WHERE c.activate = true")
+//	List<Competency> getAll();
+//	
+//	@Query("SELECT c FROM Competency c inner join c.dmOjb d WHERE d.id = :domainId AND c.activate = true")
+//	List<Competency> getByDomainId(@Param("domainId") int domainId);
+//}

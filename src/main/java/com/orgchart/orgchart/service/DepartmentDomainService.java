@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.orgchart.orgchart.DTO.DepartmentDomainDTO;
-import com.orgchart.orgchart.Mapper.OrganizationMapper;
+import com.orgchart.orgchart.Mapper.PositionMapper;
 import com.orgchart.orgchart.Mapper.DepartmentDomainMapper;
 import com.orgchart.orgchart.Repository.DepartmentDomainRepositiory;
 import com.orgchart.orgchart.model.DepartmentDomain;
@@ -25,6 +25,10 @@ public class DepartmentDomainService {
 	public List<DepartmentDomain> getAll() {
 		return departmentDomainRepositiory.getAll();
 	}
+	
+	public List<DepartmentDomain> getbyPositionId(int positionId) {
+		return departmentDomainRepositiory.getByPositionId(positionId);
+	}
 
 	public DepartmentDomainDTO findById(int id) {
 		return DepartmentDomainMapper.toDepartmentDomainDTO(departmentDomainRepositiory.getOne(Integer.valueOf(id)));
@@ -34,7 +38,11 @@ public class DepartmentDomainService {
 		DepartmentDomain rs = new DepartmentDomain();
 
 		rs.setName(obj.getName());
-		rs.setOrgObj(OrganizationMapper.toOrganization(obj.getOrgObj()));
+		rs.setPositionObj(PositionMapper.toPosition(obj.getPositionObj()));
+		rs.setCompetencies(obj.getCompetencies());
+		rs.setEntryCriteria(obj.getEntryCriteria());
+		rs.setResponsibilities(obj.getResponsibilities());
+		//rs.setOrgObj(OrganizationMapper.toOrganization(obj.getOrgObj()));
 		rs.setActivate(true);
 
 		if (departmentDomainRepositiory.save(rs) != null) {
