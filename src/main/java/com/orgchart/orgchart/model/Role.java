@@ -32,6 +32,7 @@ public class Role {
 //	@JoinColumn(name = "CP_ID")
 //	private CareerPath careerPath;
 
+	@Lob
 	@Column(name = "COMPETENICES")
 	private String competencies;
 
