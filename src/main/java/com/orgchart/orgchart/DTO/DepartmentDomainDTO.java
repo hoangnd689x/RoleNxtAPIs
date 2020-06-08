@@ -15,13 +15,15 @@ public class DepartmentDomainDTO {
 	private String responsibilities;
 	private String entryCriteria;
 	private boolean activate;
+	private String KRA;
+	private String industrialRole;
 
 	public DepartmentDomainDTO() {
 		super();
 	}
 
 	public DepartmentDomainDTO(int id, PositionDTO positionObj, String name, String competencies,
-			String responsibilities, String entryCriteria, boolean activate) {
+			String responsibilities, String entryCriteria, boolean activate, String kRA, String industrialRole) {
 		super();
 		this.id = id;
 		this.positionObj = positionObj;
@@ -30,6 +32,24 @@ public class DepartmentDomainDTO {
 		this.responsibilities = responsibilities;
 		this.entryCriteria = entryCriteria;
 		this.activate = activate;
+		KRA = kRA;
+		this.industrialRole = industrialRole;
+	}
+
+	public String getKRA() {
+		return KRA;
+	}
+
+	public void setKRA(String kRA) {
+		KRA = kRA;
+	}
+
+	public String getIndustrialRole() {
+		return industrialRole;
+	}
+
+	public void setIndustrialRole(String industrialRole) {
+		this.industrialRole = industrialRole;
 	}
 
 	public String getCompetencies() {

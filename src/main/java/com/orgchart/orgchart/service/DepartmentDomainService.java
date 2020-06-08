@@ -42,6 +42,8 @@ public class DepartmentDomainService {
 		rs.setCompetencies(obj.getCompetencies());
 		rs.setEntryCriteria(obj.getEntryCriteria());
 		rs.setResponsibilities(obj.getResponsibilities());
+		rs.setKRA(obj.getKRA());
+		rs.setIndustrialRole(obj.getIndustrialRole());
 		//rs.setOrgObj(OrganizationMapper.toOrganization(obj.getOrgObj()));
 		rs.setActivate(true);
 

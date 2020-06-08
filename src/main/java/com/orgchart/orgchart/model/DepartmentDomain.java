@@ -43,6 +43,14 @@ public class DepartmentDomain {
 	@Column(name = "ENTRY_CRIDENTIA")
 	private String entryCriteria;
 	
+	@Lob
+	@Column(name = "KRA")
+	private String KRA;
+	
+	@Lob
+	@Column(name = "INDUSTRIAL_ROLE")
+	private String industrialRole;
+	
 	@Column(name = "ACTIVATE")
 	private boolean activate;
 
@@ -51,7 +59,7 @@ public class DepartmentDomain {
 	}
 
 	public DepartmentDomain(int id, Position positionObj, String name, String competencies, String responsibilities,
-			String entryCriteria, boolean activate) {
+			String entryCriteria, String kRA, String industrialRole, boolean activate) {
 		super();
 		this.id = id;
 		this.positionObj = positionObj;
@@ -59,7 +67,25 @@ public class DepartmentDomain {
 		this.competencies = competencies;
 		this.responsibilities = responsibilities;
 		this.entryCriteria = entryCriteria;
+		KRA = kRA;
+		this.industrialRole = industrialRole;
 		this.activate = activate;
+	}
+
+	public String getKRA() {
+		return KRA;
+	}
+
+	public void setKRA(String kRA) {
+		KRA = kRA;
+	}
+
+	public String getIndustrialRole() {
+		return industrialRole;
+	}
+
+	public void setIndustrialRole(String industrialRole) {
+		this.industrialRole = industrialRole;
 	}
 
 	public String getCompetencies() {
